@@ -7,36 +7,33 @@
 </head>
 
 <body>
-    <div class="container" style="width:800px;">
+    <div class="container" style="width:2400px;">
         <div class="table-responsive">
             <table class="table table-bordered">
                 <tr>
-                    <th>Name</th>
+                    <th>Agent Name</th>
+					<th>Contact No</th>
                     <th>E-mail</th>
-                    <th>User name</th>
+                    <th>Agent Zone</th>
                     <th>Gender</th>
-                    <th>Date of birth</th>
-					<th>Phone Number</th>
-					<th>Address</th>
-					<th>Password</th>
+                    
                 </tr>
                 <?php
-                $data = file_get_contents("Data_file.json");
+                $data = file_get_contents("Data_agent.json");
                 $data = json_decode($data, true);
                 foreach ($data as $row) {
                     echo '<tr>
                                <td>' . $row["name"] . '</td>
-                               <td>' . $row["e-mail"] . '</td>
-                               <td>' . $row["username"] . '</td>
-                               <td>' . $row["gender"] . '</td>
-                               <td>' . $row["dob"] . '</td>
 							   <td>' . $row["phn"] . '</td>
-							   <td>' . $row["address"] . '</td>
-							   <td>' . $row["password"] . '</td>
+                               <td>' . $row["email"] . '</td>
+                               <td>' . $row["zone"] . '</td>
+                               <td>' . $row["gender"] . '</td>
+                               
                                </tr>';
                 }
                 ?>
-				
+				<h4><a href="welcome.php"><h4>Dash bord</a> |
+				<a href="logout.php">Log Out</h4></a>
             </table>
         </div>
     </div>

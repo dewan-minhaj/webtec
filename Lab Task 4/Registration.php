@@ -6,7 +6,8 @@ $name = $email = $gender = $date   = $Degree =  $BG = "";
 $usernameErr = $passErr = $conpassErr = "";
 $username = $pass = $conpass = "";
 
-if (isset($_POST["submit"])) {
+if (isset($_POST["submit"])) 
+{
     if (empty($_POST["name"])) {
         $nameErr = "Name is required";
     } else if (!empty($_POST["name"])) {
@@ -83,7 +84,10 @@ if (isset($_POST["submit"])) {
                 'e-mail'          =>     $_POST["email"],
                 'username'     =>     $_POST["username"],
                 'gender'     =>     $_POST["gender"],
-                'dob'     =>     $_POST["dob"]
+                'dob'     =>     $_POST["dob"],
+				'phn'   =>      $_POST["phn"],
+				'address' =>    $_POST["address"],
+				'password' =>    $_POST["password"]
             );
             $array_data[] = $new_data;
             $final_data = json_encode($array_data);
@@ -117,10 +121,15 @@ if (isset($_POST["submit"])) {
             echo $error;
         }
         ?>
+	<fieldset>	
+	     <legend>
+		 <h3>REGISTRATION </h3>
+		 </legend>
         Name:
         <input type="text" name="name" value="<?php echo $name; ?>">
         <span class="error">* <?php echo $nameErr; ?></span>
         <br><br>
+		
         E-mail:
         <input type="text" name="email" value="<?php echo $email; ?>">
         <span class="error">* <?php echo $emailErr; ?></span>
@@ -129,6 +138,13 @@ if (isset($_POST["submit"])) {
         <input type="text" name="username" value="<?php echo $username; ?>">
         <span class="error">* <?php echo $usernameErr; ?></span>
         <br><br>
+		Phone No:
+		<input type="text" id="phn" name="phn" value="+880">
+		<br><br>
+		Address:
+		<input type="text" id="address" name="address" value="Enter address here...">
+	
+		<br><br>
         Password:
         <input type="text" name="password">
         <span class="error">* <?php echo $passErr; ?></span>
@@ -154,6 +170,7 @@ if (isset($_POST["submit"])) {
         </fieldset>
         <br><br>
         <input type="submit" name="submit" value="Append" class="btn btn-info" /><br />
+		</fieldset>
         <?php
         if (isset($message)) {
             echo $message;
